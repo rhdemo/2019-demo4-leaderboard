@@ -1,0 +1,44 @@
+.machine-list {
+
+  .machine-stats {
+    h3 {
+      font-weight: 700;
+    }
+    margin-bottom: 1rem;
+  }
+
+  .table.machine-list-table {
+    .is-highlighted {
+      background-color: rgba(255, 255, 0, 0.3);
+    }
+
+    .broken {
+      color: #820000;
+    }
+
+    .damaged {
+      color: #b36000;
+    }
+
+    .healthy {
+      //color: green;
+    }
+  }
+
+  th.health-column {
+    min-width: 6em;
+  }
+
+  td .machine-label {
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  td .button {
+    margin-right: 0.3rem;
+    > svg {
+      margin-right: 0.5rem;
+    }
+  }
+}
