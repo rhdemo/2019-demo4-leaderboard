@@ -26,7 +26,7 @@ function Leaderboard({leaderboard}) {
         <tbody>
         {leaderboard.players.map((player, index) => (
           <tr key={index}>
-            <td>{index}</td>
+            <td>{index+1}</td>
             <td>{player.username}</td>
             <td>{player.score}</td>
           </tr>))}
