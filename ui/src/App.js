@@ -131,9 +131,9 @@ function App() {
     <div className="app">
       {renderConnectionBar()}
       {renderMain()}
-      <pre>
-        {JSON.stringify(state, null, 2)}
-      </pre>
+      {/*<pre>*/}
+      {/*  {JSON.stringify(state, null, 2)}*/}
+      {/*</pre>*/}
     </div>
   );
 }

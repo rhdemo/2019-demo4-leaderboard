@@ -13,6 +13,5 @@ async function leaderboardHandler(client, changeType, key) {
   }
 }
 
-
 module.exports = leaderboardHandler;
 
