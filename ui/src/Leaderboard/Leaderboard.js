@@ -1,9 +1,9 @@
 import React from "react";
-import _get from "lodash/get";
+import lodashGet from "lodash/get";
 import "./Leaderboard.scss";
 
 
-function Leaderboard({game, leaderboard}) {
+function Leaderboard({game, stats, leaderboard}) {
 
   function showMotion(gesture) {
     return game && game.motions && game.motions[gesture];
@@ -29,8 +29,8 @@ function Leaderboard({game, leaderboard}) {
       return null;
     }
 
-    let successes = _get(player, `successfulMotions.${gesture}`, 0);
-    let failures = _get(player, `failedMotions.${gesture}`, 0);
+    let successes = lodashGet(player, `successfulMotions.${gesture}`, 0);
+    let failures = lodashGet(player, `failedMotions.${gesture}`, 0);
     return <td>{`${successes}/${failures + successes}`}</td>;
   }
 
@@ -60,6 +60,7 @@ function Leaderboard({game, leaderboard}) {
   return (
     <div className="leaderboard section">
       <h1 className="title">Leaderboard</h1>
+      <h3 className="subtitle">Players: {lodashGet(stats, "players.currentNumberOfEntries")}</h3>
       <table className="table leaderboard-table">
         <thead>
         {createHeader()}

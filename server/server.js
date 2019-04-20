@@ -5,6 +5,7 @@ const {OUTGOING_MESSAGE_TYPES} = require("./message-types");
 const broadcast = require("./utils/broadcast");
 const processSocketMessage = require("./socket-handlers/process-socket-message");
 const initData = require("./datagrid/init-data");
+const initPlayers = require("./datagrid/init-players");
 
 const PORT = env.get("PORT", "8080").asIntPositive();
 const IP = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0";
@@ -17,6 +18,8 @@ global.game = {
 global.leaderboard = {
   players: []
 };
+
+global.playerStats = {};
 
 global.socketServer = new WebSocket.Server({
   host: IP,
@@ -32,6 +35,7 @@ setInterval(function () {
 }, 5000);
 
 initData()
+  .then(() => initPlayers())
   .then(client => {
     global.socketServer.on("connection", function connection(ws) {
       ws.on("message", function incoming(message) {

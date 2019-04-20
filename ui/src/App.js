@@ -122,7 +122,7 @@ function App() {
 
     return (
       <div>
-        <Leaderboard socket={socket} game={state.game} leaderboard={state.leaderboard}/>
+        <Leaderboard socket={socket} game={state.game} stats={state.stats} leaderboard={state.leaderboard}/>
       </div>
     );
   }
