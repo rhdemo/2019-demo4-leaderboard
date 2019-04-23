@@ -7,7 +7,7 @@ async function readLeaderboard(changeType) {
       return;
     }
 
-    let str = await global.dataClient.get(DATAGRID_KEYS.LEADERBOARD);
+    let str = await global.playerClient.get(DATAGRID_KEYS.LEADERBOARD);
     if (str) {
       global.leaderboard = JSON.parse(str);
     }

@@ -27,6 +27,7 @@ global.socketServer = new WebSocket.Server({
 });
 
 global.dataClient = null;
+global.playerClient = null;
 
 log.info(`Started Leaderboard server on ${IP}:${PORT}`);
 

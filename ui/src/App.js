@@ -127,7 +127,7 @@ function App() {
     if (gameState === GAME_STATES.LOBBY) {
       return (
         <div className="app message">
-          <h1 className="title">It's time to Wreck it!</h1>
+          <h1 className="title">It's time to WRECK IT!</h1>
           <h3 className="title">Waiting for the game to start...</h3>
         </div>
       );
@@ -136,8 +136,9 @@ function App() {
     if (gameState === GAME_STATES.PAUSED) {
       return (
         <div className="main">
-          <Leaderboard game={state.game} stats={state.stats} leaderboard={state.leaderboard}/>
           <PauseScreen/>
+          <Leaderboard game={state.game} stats={state.stats} leaderboard={state.leaderboard}/>
+          <Motions game={state.game} stats={state.stats}/>
         </div>
       );
     }
