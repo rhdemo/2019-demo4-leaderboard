@@ -1,0 +1,46 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800);
+@import "./vars";
+
+html {
+  height: 100%;
+  font-size: 1em;
+}
+
+@media only screen and (max-width : 1200px) {
+  html {
+    font-size: 0.5em;
+  }
+}
+
+@media only screen  and (min-width : 900px) and (max-width : 1200px) {
+  html {
+    font-size: 0.6em;
+  }
+}
+
+@media only screen  and (min-width : 1200px) and (max-width : 1620px) {
+  html {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen  and (min-width : 1620px) {
+  html {
+    font-size: 1em;
+  }
+}
+
+body {
+  background-image: radial-gradient(55% 90% at top, lighten($color-background, 8%), $color-background 100%);
+  background-position: top center;
+  background-color: $color-background;
+  color: $color-text;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: $font-weight-normal;
+  margin: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
