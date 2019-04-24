@@ -2,16 +2,14 @@ const infinispan = require("infinispan");
 const env = require("env-var");
 
 const log = require("../utils/log")("datagrid");
-const {DATAGRID_KEYS} = require("./constants");
-const readGame = require("./read-game");
-const gameHandler = require("./game");
+const readLeaderboard = require("./read-leaderboard");
 
 const DATAGRID_HOST = env.get("DATAGRID_HOST").asString();
 const DATAGRID_HOTROD_PORT = env.get("DATAGRID_HOTROD_PORT").asIntPositive();
 
 async function initClient() {
-  let client = await infinispan.client({port: DATAGRID_HOTROD_PORT, host: DATAGRID_HOST}, {cacheName: "game"});
-  log.info(`Connected to Infinispan game data`);
+  let client = await infinispan.client({port: DATAGRID_HOTROD_PORT, host: DATAGRID_HOST}, {cacheName: "leaderboard"});
+  log.info(`Connected to Infinispan leaderboard data`);
 
   let stats = await client.stats();
   log.debug(stats);
@@ -25,22 +23,20 @@ async function initClient() {
 
 async function handleDataChange(client, changeType, key) {
   log.debug(`Data change: ${changeType} ${key}`);
-  switch (key) {
-    case DATAGRID_KEYS.GAME:
-      gameHandler(client, changeType, key);
-      break;
+  if (key === DATAGRID_KEYS.LEADERBOARD) {
+    readLeaderboard();
   }
 }
 
-async function initData() {
+async function initLeaderboard() {
   try {
-    global.dataClient = await initClient();
-    await readGame();
+    global.leaderboardClient = await initClient();
+    await readLeaderboard();
   } catch (error) {
-    log.error(`Error connecting to Infinispan game data: ${error.message}`);
+    log.error(`Error connecting to Infinispan leaderboard data: ${error.message}`);
     log.error(error);
   }
-  return global.dataClient;
+  return global.leaderboardClient;
 }
 
-module.exports = initData;
+module.exports = initLeaderboard;
