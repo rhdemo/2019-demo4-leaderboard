@@ -1,11 +1,11 @@
-import React from "react";
+import React, {forwardRef} from "react";
 import lodashGet from "lodash/get";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as fasStar} from "@fortawesome/free-solid-svg-icons";
 import "./Leaderboard.scss";
 
 
-function Player({game, player, place}) {
+const Player = forwardRef(({game, player, place}, ref) => {
   function showMotion(gesture) {
     return game && game.motions && game.motions[gesture];
   }
@@ -46,7 +46,7 @@ function Player({game, player, place}) {
   }
 
   return (
-    <div className="player">
+    <div className="player" ref={ref}>
       {renderPosition(place)}
       <div className="username">{player.username}</div>
       <div className="points">{player.score} <small className="small">POINTS</small>
@@ -58,6 +58,6 @@ function Player({game, player, place}) {
       {renderMotionAchievement(player, "fever")}
       {renderMotionAchievement(player, "floss")}
     </div>);
-}
+});
 
 export default Player;
