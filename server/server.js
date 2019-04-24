@@ -6,6 +6,7 @@ const broadcast = require("./utils/broadcast");
 const processSocketMessage = require("./socket-handlers/process-socket-message");
 const initData = require("./datagrid/init-data");
 const initPlayers = require("./datagrid/init-players");
+const pollDatagrid = require("./datagrid/poll-datagrid");
 
 const PORT = env.get("PORT", "8080").asIntPositive();
 const IP = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0";
@@ -43,4 +44,5 @@ initData()
         processSocketMessage(ws, message);
       });
     });
+    pollDatagrid(10000);
   });
