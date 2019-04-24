@@ -2,9 +2,6 @@ const infinispan = require("infinispan");
 const env = require("env-var");
 
 const log = require("../utils/log")("datagrid");
-const {DATAGRID_KEYS} = require("./constants");
-const leaderboardHandler = require("./leaderboard");
-const playerChange = require("./player-change");
 const readPlayerStats = require("./read-player-stats");
 
 const DATAGRID_HOST = env.get("DATAGRID_HOST").asString();
@@ -17,20 +14,7 @@ async function initClient() {
   let stats = await client.stats();
   log.debug(stats);
 
-  let listenerId = await client.addListener("create", key => handleDataChange(client,"create", key));
-  client.addListener("modify", key => handleDataChange(client,"modify", key), {listenerId});
-  client.addListener("remove", key => handleDataChange(client,"remove", key), {listenerId});
-
   return client;
-}
-
-async function handleDataChange(client, changeType, key) {
-  log.debug(`Player change: ${changeType} ${key}`);
-  if (key === DATAGRID_KEYS.LEADERBOARD) {
-    leaderboardHandler(client, changeType, key);
-  } else if (changeType === "create" || changeType === "remove") {
-    playerChange(client, changeType, key);
-  }
 }
 
 async function initPlayers() {
