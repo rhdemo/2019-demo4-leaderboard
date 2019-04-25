@@ -4,6 +4,7 @@ const log = require("./utils/log")("leaderboard-server");
 const {OUTGOING_MESSAGE_TYPES} = require("./message-types");
 const broadcast = require("./utils/broadcast");
 const processSocketMessage = require("./socket-handlers/process-socket-message");
+const enableDatagridLogging = require("./datagrid/enable-logging");
 const initData = require("./datagrid/init-data");
 const initPlayers = require("./datagrid/init-players");
 const initLeaderboard = require("./datagrid/init-leaderboard");

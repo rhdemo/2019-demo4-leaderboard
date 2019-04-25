@@ -1,9 +1,7 @@
 import React from "react";
-import posed, { PoseGroup } from "react-pose";
 import Player from "./Player"
-import "./Leaderboard.scss";
 
-const AnimatedPlayer = posed(Player)({});
+import "./Leaderboard.scss";
 
 function Leaderboard({game, stats, leaderboard}) {
 
@@ -17,11 +15,7 @@ function Leaderboard({game, stats, leaderboard}) {
 
   return (
     <div className="leaderboard ">
-      <PoseGroup>
-        {leaderboard.players.map((player, index) => (
-          <AnimatedPlayer className="player" key={player.username} game={game} player={player} place={index+1}/>
-        ))}
-      </PoseGroup>
+        {leaderboard.players.map((player, index) => <Player key={index} game={game} player={player} place={index+1}/>)}
     </div>
   );
 }
