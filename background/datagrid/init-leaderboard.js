@@ -2,9 +2,6 @@ const infinispan = require("infinispan");
 const env = require("env-var");
 
 const log = require("../utils/log")("datagrid");
-const readLeaderboard = require("./read-leaderboard");
-const readSuccessfulMotions = require("./read-successful-motions");
-const readFailedMotions = require("./read-failed-motions");
 
 const DATAGRID_HOST = env.get("DATAGRID_HOST").asString();
 const DATAGRID_HOTROD_PORT = env.get("DATAGRID_HOTROD_PORT").asIntPositive();
@@ -22,9 +19,6 @@ async function initClient() {
 async function initLeaderboard() {
   try {
     global.leaderboardClient = await initClient();
-    await readLeaderboard();
-    await readSuccessfulMotions();
-    await readFailedMotions();
   } catch (error) {
     log.error(`Error connecting to Infinispan leaderboard data: ${error.message}`);
     log.error(error);

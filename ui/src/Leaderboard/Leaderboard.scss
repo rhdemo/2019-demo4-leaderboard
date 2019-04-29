@@ -1,33 +1,40 @@
 @import "../vars";
 
 .leaderboard {
-  padding-top: 1%;
-  padding-left: 1%;
-  height: 98%;
-  width: 64%;
-  font-size: 2em;
+  padding-left: 5%;
+  height: 100%;
   font-weight: 300;
   display: flex;
   flex-direction: column;
 
-  small, sup {
-    font-size: 0.4em;
-    font-weight: 300;
-  }
-
   .player {
-    height: 9.4%;
-    margin: 0.4%;
-    border-radius: 0.25em;
-    background: rgba(0,0,0,.2);
+    font-size: 1.5em;
+    height: 9.3%;
+    padding-right: 1.75%;
+    margin-bottom: 0.7%;
+    border-radius: 0.4em;
+    background-color: $color-background-env;
+    box-shadow: 0.1em 0.1em 0.05em $color-box-shadow;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    div {
-      padding-left: 0.3em;
-      padding-right: 0.3em;
+    .medal {
+      height: 100%;
+      width: 1.75%;
+      border-radius: 0.4em 0 0 0.4em;
+
+      &.medal-1 {
+        background-color: $color-gold;
+      }
+      &.medal-2 {
+        background-color: $color-silver;
+      }
+      &.medal-3 {
+        background-color: $color-bronze;
+      }
+
     }
 
     .position {
@@ -36,32 +43,46 @@
       justify-content: center;
 
       height: 100%;
-      box-shadow: 0.2em 0 0.2em -0.05em rgba(0,0,0,.3);
+      font-size: 1.5em;
       text-align: center;
-      font-size: 1.6em;
-      font-weight: $font-weight-extra-bold;
+      font-weight: $font-weight-bold;
       min-width: 2em;
+
+      .place-number {
+        //font-weight: $font-weight-extra-bold;
+      }
+      small, sup {
+        font-size: 0.5em;
+        //font-weight: 300;
+      }
+
     }
 
     .username, .points {
-      flex: 2;
-    }
-
-    .points {
       flex: 1;
     }
 
     .username {
-      font-weight: $font-weight-bold;
+      font-weight: $font-weight-normal;
       padding-left: 1em;
     }
 
+    .points {
+      flex: 1;
+      font-size: 1.5em;
+      font-weight: $font-weight-bold;
+    }
+
     .achievement {
-      color: rgba(0,0,0,.3);
+      display: flex;
+      justify-content: center;
+      color: $color-background;
+      font-size: 2em;
+      line-height: 2em;
     }
 
     .achievement.success {
-      color: #E9DE39;
+      color: $color-gold;
     }
   }
 }

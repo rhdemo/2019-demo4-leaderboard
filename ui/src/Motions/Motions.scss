@@ -1,50 +1,74 @@
+@import "../vars";
+
+
 .motions {
-  width: 31%;
   display: grid;
-  padding: 2%;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(auto-fill, 33%);
   grid-column-gap: 2em;
   grid-row-gap: 2%;
-
+  height: 99.5%;
 
   .card {
-    color: #01B9B1;
-    background-color: rgba(0,0,0,0.2);
-    border-radius: 0.5em;
+    color: $color-text;
+    background-color: #FFFFFF;
+    border-radius: 1em;
+    border: 0.1em solid white;
+    box-shadow: 0.1em 0.1em 0.05em $color-box-shadow;
 
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
 
-    background-repeat:no-repeat;
-    background-position: center center;
-    background-size: 250%;
+    &.unknown {
+      border-radius: 1em;
+      border: 0.3em dotted white;
+      background-color: $color-background;
+      box-shadow: none;
+    }
 
-    &.shake {
+    .motion-title {
+      height: 25%;
+      font-size: 2.5em;
+      line-height: 3em;
+      margin: 0;
+      font-weight: 800;
+    }
+
+    .motion-icon {
+      height: 70%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 300%;
+    }
+
+    &.shake > .motion-icon {
       background-image: url("../assets/img/icon-shake.svg");
     }
-    &.circle {
+
+    &.circle > .motion-icon {
       background-image: url("../assets/img/icon-circle.svg");
     }
-    &.x {
+
+    &.x > .motion-icon {
       background-image: url("../assets/img/icon-x.svg");
     }
-    &.roll {
+
+    &.roll > .motion-icon {
       background-image: url("../assets/img/icon-roll.svg");
     }
-    &.fever {
+
+    &.fever > .motion-icon {
+      background-size: 200%;
       background-image: url("../assets/img/icon-disco.svg");
     }
-    &.floss {
+
+    &.floss > .motion-icon {
+      background-size: 200%;
       background-image: url("../assets/img/icon-floss.svg");
     }
-    &.unknown {
-      justify-content: center;
-      span {
-        font-size: 5em;
-      }
-    }
+
+
   }
 }

@@ -1,7 +1,6 @@
 import React, {forwardRef} from "react";
 import lodashGet from "lodash/get";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar as fasStar} from "@fortawesome/free-solid-svg-icons";
+import { StarRate } from "@material-ui/icons";
 import "./Leaderboard.scss";
 
 
@@ -14,22 +13,22 @@ const Player = forwardRef(({game, player, place}, ref) => {
     let superScript;
     switch (place) {
       case 1:
-        superScript = "ST";
+        superScript = "st";
         break;
       case 2:
-        superScript = "ND";
+        superScript = "nd";
         break;
       case 3:
-        superScript = "RD";
+        superScript = "rd";
         break;
       default:
-        superScript = "TH";
+        superScript = "th";
         break;
     }
 
     return (
       <div className="position">
-        <div>{place}<sup>{superScript}</sup></div>
+        <div><span className="place-number">{place}</span><sup className="place-super">{superScript}</sup></div>
       </div>);
   }
 
@@ -40,16 +39,17 @@ const Player = forwardRef(({game, player, place}, ref) => {
 
     let successes = lodashGet(player, `successfulMotions.${gesture}`, 0);
     if (successes > 0) {
-      return <div className="achievement success"><FontAwesomeIcon icon={fasStar}/></div>
+      return <div className="achievement success"><StarRate fontSize="inherit"/></div>;
     }
-    return <div className="achievement"><FontAwesomeIcon icon={fasStar}/></div>;
+    return <div className="achievement"><StarRate fontSize="inherit"/></div>;
   }
 
   return (
     <div className="player" ref={ref}>
+      <div className={`medal medal-${place}`}/>
       {renderPosition(place)}
       <div className="username">{player.username}</div>
-      <div className="points">{player.score} <small className="small">POINTS</small>
+      <div className="points">{player.score} <small className="small"/>
       </div>
       {renderMotionAchievement(player, "shake")}
       {renderMotionAchievement(player, "circle")}

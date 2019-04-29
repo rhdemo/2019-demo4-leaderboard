@@ -8,5 +8,7 @@ module.exports.OUTGOING_MESSAGE_TYPES = {
   HEARTBEAT: "heartbeat",
   GAME: "game",
   LEADERBOARD: "leaderboard",
-  STATS: "stats"
+  STATS: "stats",
+  SUCCESSFUL_MOTIONS: "successfulMotions",
+  FAILED_MOTIONS: "failedMotions"
 };

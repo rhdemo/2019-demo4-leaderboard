@@ -4,34 +4,43 @@
 html {
   height: 100%;
   font-size: 1em;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 @media only screen and (max-width : 900px) {
   html {
-    font-size: 0.5em;
+    font-size: 8px;
   }
 }
 
 @media only screen  and (min-width : 900px) and (max-width : 1200px) {
   html {
-    font-size: 0.6em;
+    font-size: 10px;
+  }
+}
+@media only screen  and (min-width : 1200px) and (max-width : 1440px) {
+  html {
+    font-size: 12px;
   }
 }
 
-@media only screen  and (min-width : 1200px) and (max-width : 1620px) {
+@media only screen  and (min-width : 1440px) and (max-width : 1620px) {
   html {
-    font-size: 0.8em;
+    font-size: 14px;
   }
 }
 
 @media only screen  and (min-width : 1620px) {
   html {
-    font-size: 1em;
+    font-size: 16px;
   }
 }
 
 body {
-  background-image: radial-gradient(55% 90% at top, lighten($color-background, 8%), $color-background 100%);
   background-position: top center;
   background-color: $color-background;
   color: $color-text;
