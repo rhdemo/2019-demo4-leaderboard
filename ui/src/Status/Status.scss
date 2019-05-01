@@ -3,13 +3,12 @@
 .status {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-left: 2%;
   padding-right: 2%;
   font-size: 1.6em;
-  //font-weight: $font-weight-normal;
   .stat-number {
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: $font-weight-bold;
   }
 }

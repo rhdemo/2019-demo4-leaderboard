@@ -1,17 +1,19 @@
 $color-background:          #EDEDED;
 $color-background-env:      white;
 $color-box-shadow:          #BEBEBE;
-$color-text:                #383838;
+$color-gray:                #EDEDED;
+$color-black:               #444;
 $color-teal:                #1EB9B1;
-$color-red:                #FC5168;
+$color-teal:                #1EB9B1;
+$color-red:                 #FC5168;
 $color-gold:                #FFCC00;
 $color-silver:              #D1D1D1;
-$color-bronze:              #CC9800;
+$color-bronze:              #CC9900;
+$color-text:                $color-black;
 $font-weight-light:         300;
 $font-weight-normal:        400;
 $font-weight-bold:          600;
 $font-weight-extra-bold:    800;
-//$font-size-base:            12px;
 $easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 

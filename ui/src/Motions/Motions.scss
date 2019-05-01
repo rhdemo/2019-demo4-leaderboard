@@ -3,14 +3,15 @@
 
 .motions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(auto-fill, 33%);
-  grid-column-gap: 2em;
+  grid-template-columns: 48% 48%;
+  grid-template-rows: 32% 32% 32%;
+  grid-column-gap: 4%;
   grid-row-gap: 2%;
-  height: 99.5%;
+  height: 100%;
 
   .card {
     color: $color-text;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
     background-color: #FFFFFF;
     border-radius: 1em;
     border: 0.1em solid white;
@@ -38,37 +39,10 @@
 
     .motion-icon {
       height: 70%;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 300%;
+      padding: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-
-    &.shake > .motion-icon {
-      background-image: url("../assets/img/icon-shake.svg");
-    }
-
-    &.circle > .motion-icon {
-      background-image: url("../assets/img/icon-circle.svg");
-    }
-
-    &.x > .motion-icon {
-      background-image: url("../assets/img/icon-x.svg");
-    }
-
-    &.roll > .motion-icon {
-      background-image: url("../assets/img/icon-roll.svg");
-    }
-
-    &.fever > .motion-icon {
-      background-size: 200%;
-      background-image: url("../assets/img/icon-disco.svg");
-    }
-
-    &.floss > .motion-icon {
-      background-size: 200%;
-      background-image: url("../assets/img/icon-floss.svg");
-    }
-
-
   }
 }

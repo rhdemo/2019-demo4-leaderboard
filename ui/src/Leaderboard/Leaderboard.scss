@@ -2,16 +2,16 @@
 
 .leaderboard {
   padding-left: 5%;
-  height: 100%;
   font-weight: 300;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
+  grid-row-gap: 1%;
+  height: 100%;
 
   .player {
     font-size: 1.5em;
-    height: 9.3%;
     padding-right: 1.75%;
-    margin-bottom: 0.7%;
     border-radius: 0.4em;
     background-color: $color-background-env;
     box-shadow: 0.1em 0.1em 0.05em $color-box-shadow;
@@ -58,17 +58,14 @@
 
     }
 
-    .username, .points {
-      flex: 1;
-    }
-
     .username {
+      flex: 3;
       font-weight: $font-weight-normal;
       padding-left: 1em;
     }
 
     .points {
-      flex: 1;
+      flex: 2;
       font-size: 1.5em;
       font-weight: $font-weight-bold;
     }

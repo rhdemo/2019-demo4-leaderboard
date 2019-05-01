@@ -14,7 +14,7 @@ function Card({game, motion}) {
   return (
     <div className={classNames("card", motion.gesture)}>
       <div className="motion-title">{motion.name}</div>
-      <div className={classNames("motion-icon", motion.gesture)}/>
+      <div className={classNames("motion-icon", motion.gesture)}>{motion.icon}</div>
     </div>
   );
 }
