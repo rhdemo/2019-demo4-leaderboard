@@ -30,6 +30,9 @@ async function getData() {
         }
       }
     } while (!entry.done);
+
+    await clientIterator.close();
+
     return {successfulMotions, failedMotions};
   } catch (e) {
     log.error("Error reading player data", e.message);
